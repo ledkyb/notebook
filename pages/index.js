@@ -1,7 +1,15 @@
-const Index = () => (
-    <div>
-      <p>Hello Next.js</p>
-    </div>
-)
+import React from 'react';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../src/resources/styles/styles.css';
 
-export default Index;
+
+class Home extends React.Component {
+  render(){
+    return(
+       <div>test</div>
+    );
+  }
+
+}
+
+export default Home;
