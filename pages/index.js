@@ -1,12 +1,66 @@
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../src/resources/styles/styles.css';
-
+import '../node_modules/bootstrap/scss/bootstrap.scss';
+import '../src/resources/styles/styles.scss';
+import '../node_modules/@fortawesome/fontawesome-free/js/all.js';
+import Sidebar from '../src/Sidebar';
+import Content from '../src/Components/Content/Content';
 
 class Home extends React.Component {
   render(){
     return(
-       <div>test</div>
+        <div className="container-fluid">
+          <div className="row">
+            <Sidebar/>
+
+            <div className="col-lg-8 col-md-8 col-sm-12">
+              <div className="col-12 top--container">
+                <div className="top--content animated fadeInDown">
+                  <div className="show-on-mobile close-mobile-menu">
+                            <span onClick={() => {
+                              console.log('inside onClick');
+                              const mobileMenu = document.querySelector('.top--container');
+                              mobileMenu.style.left = '-100%';
+                            }}>close</span>
+                  </div>
+                  <nav className="nav">
+                    <li className="current"><a href="/">home</a>
+                    </li>
+                    <li><a href="/about">about</a>
+                    </li>
+                    <li><a href="/archives">archive</a>
+                    </li>
+                    <li><a href="/links">projects</a>
+                    </li>
+                  </nav>
+
+                  <section className="search--container hide-on-mobile">
+
+                    <div className="input-group mb-3 search--group">
+
+                      <div className="input-group-prepend">
+                        <button className="input-group-text search--search-icon">
+                          <i className="fas fa-search"></i>
+                        </button>
+                      </div>
+
+                      <input type="text" className="form-control search--input hidden"
+                             aria-label="search for specific articles" style={{ display: "none"}} />
+
+                      <div className="input-group-append" style={{ display: "none"}}>
+                        <button className="input-group-text">search</button>
+                      </div>
+
+                    </div>
+
+                  </section>
+                </div>
+              </div>
+
+              <Content posts={[0,1,2]}/>
+
+            </div>
+          </div>
+        </div>
     );
   }
 
