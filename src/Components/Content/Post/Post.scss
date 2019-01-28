@@ -1,0 +1,28 @@
+.content--content {
+  border-bottom: 1px solid #d3d3d3;
+
+  .post--content {
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .post--footer {
+    background: rgba(0,0,0,0.08);
+    padding: 10px 0 10px 10px;
+    margin-top: 15px;
+
+    a.tag {
+      margin: 0 2.5px;
+    }
+
+    .fa-tag {
+      margin: 0 15px;
+    }
+  }
+}

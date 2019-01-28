@@ -2,12 +2,26 @@ import React from 'react';
 import '../node_modules/bootstrap/scss/bootstrap.scss';
 import '../src/resources/styles/styles.scss';
 import '../node_modules/@fortawesome/fontawesome-free/js/all.js';
+
 import Sidebar from '../src/Sidebar';
 import Content from '../src/Components/Content/Content';
 
+import Fetch from 'isomorphic-unfetch';
+import axios from 'axios';
+
 class Home extends React.Component {
-  render(){
-    return(
+  static async getInitialProps({req}) {
+    const res = await Fetch(
+        'https://wp.lloanalas.com/wp-json/ledkyb/api/posts?number=12'),
+        data = await res.json();
+
+    return req
+        ? {posts: data}
+        : {posts: []};
+  }
+
+  render() {
+    return (
         <div className="container-fluid">
           <div className="row">
             <Sidebar/>
@@ -18,7 +32,8 @@ class Home extends React.Component {
                   <div className="show-on-mobile close-mobile-menu">
                             <span onClick={() => {
                               console.log('inside onClick');
-                              const mobileMenu = document.querySelector('.top--container');
+                              const mobileMenu = document.querySelector(
+                                  '.top--container');
                               mobileMenu.style.left = '-100%';
                             }}>close</span>
                   </div>
@@ -38,15 +53,19 @@ class Home extends React.Component {
                     <div className="input-group mb-3 search--group">
 
                       <div className="input-group-prepend">
-                        <button className="input-group-text search--search-icon">
-                          <i className="fas fa-search"></i>
+                        <button
+                            className="input-group-text search--search-icon">
+                          <i className="fas fa-search"/>
                         </button>
                       </div>
 
-                      <input type="text" className="form-control search--input hidden"
-                             aria-label="search for specific articles" style={{ display: "none"}} />
+                      <input type="text"
+                             className="form-control search--input hidden"
+                             aria-label="search for specific articles"
+                             style={{display: 'none'}}/>
 
-                      <div className="input-group-append" style={{ display: "none"}}>
+                      <div className="input-group-append"
+                           style={{display: 'none'}}>
                         <button className="input-group-text">search</button>
                       </div>
 
@@ -56,7 +75,7 @@ class Home extends React.Component {
                 </div>
               </div>
 
-              <Content posts={[0,1,2]}/>
+              <Content posts={this.props.posts}/>
 
             </div>
           </div>

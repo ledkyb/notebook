@@ -5,7 +5,7 @@ class Content extends React.Component {
   render() {
     return (
         <div className="col-12 content--container">
-          {this.props.posts.map(post => <Post post={post}/>)}
+          {this.props.posts.map((post, index) => <Post key={index} post={post}/>)}
         </div>
     );
   }
