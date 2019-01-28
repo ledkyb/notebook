@@ -27,12 +27,26 @@
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
     }
   ],
   "../src/resources/styles/styles.scss": [
     {
       "id": "./src/resources/styles/styles.scss",
       "name": "./src/resources/styles/styles.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./Post.scss": [
+    {
+      "id": "./src/Components/Content/Post/Post.scss",
+      "name": "./src/Components/Content/Post/Post.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
