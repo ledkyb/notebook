@@ -10,7 +10,7 @@ class Post extends React.Component {
               <a href="#">{this.props.post.title}</a>
             </p>
 
-            <div className="post--content" dangerouslySetInnerHTML={{__html: (this.props.post.content).substr(0, 150)}} />
+            <div className="post--content" dangerouslySetInnerHTML={{__html: (this.props.post.excerpt)}} />
 
             <p className="post--footer">
               <i className="far fa-calendar-alt"/>

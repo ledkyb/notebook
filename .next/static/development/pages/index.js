@@ -7111,7 +7111,7 @@ function (_React$Component) {
       }, this.props.post.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "post--content",
         dangerouslySetInnerHTML: {
-          __html: this.props.post.content.substr(0, 150)
+          __html: this.props.post.excerpt
         },
         __source: {
           fileName: _jsxFileName,
